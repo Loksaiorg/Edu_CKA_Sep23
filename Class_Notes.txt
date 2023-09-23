@@ -1,0 +1,192 @@
+
+
+Lab Requirements :::
+
+Create :::
+
+	1. github 					https://github.com/
+	2. Docker Registry			https://hub.docker.com/
+	3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+				- Valide Email ID
+				- Credit/Debit Card(International Transaction)
+				- Mobile Number
+	
+			VMs....
+
+
+	Kubernetes is a Open Source Container Orchestration Tool.
+	
+	Managed Services :
+	
+		AWS			ECS,ECR,EKS
+		Azure		ACS,ACR,AKS
+		GCP 		GCS,GCR,GKS
+	
+	We are gng to work with open source Kubernetes.
+	
+	
+
+**************************
+Day - 1 - 23rd Sep. 2023
+**************************
+
+		Introduction to Kubernetes :::
+		
+		
+		Docker 
+		
+		Linux 
+		
+		
+Lab Requirements :::
+
+Create :::
+
+	1. github 					https://github.com/
+	2. Docker Registry			https://hub.docker.com/
+	3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+				- Valide Email ID
+				- Credit/Debit Card(International Transaction)
+				- Mobile Number
+	
+			VMs....
+
+	Kubernetes is a Open Source Container Orchestration Tool.
+	
+	DevOps and its Stages :::
+	
+		Containers ???
+		
+		Virtual Machines ???
+		
+	Devops :::
+	
+		Is a software development strategy
+	
+		Development ::
+			--> Create the source Code
+			--> Build 
+					--> It is a process of compiling the source code & Create artifacts (binary - *.war/*.jar/*.dll/*.exec)
+					
+						mywebapp.war	dependencies!
+						tomcat_Server_v8.5 with jdk_Openjdk11
+						
+						Package : mywebapp_pkg1(mywebapp.war,tomcat_v8.5,Openjdk11)
+						
+						Application_Image 	: 	It is static file which defines the Application and its dependencies.
+												Non-Executable.
+											
+						Container		 	:	Container is a executable units of Application_Images		
+					
+		Deployed to higher environments:
+			
+			Test Environments 
+				QA 					mywebapp.war - tomcat_Server_v9 with jdk_Openjdk17
+									mywebapp_pkg1
+				UAT 
+					
+			Prod Environment
+				PROD Server
+				
+		
+		
+		Monolith Application Architecture.
+				Tightly coupled
+		
+		Micro_Service Based
+				Loosely coupled
+		
+		
+		E_Commerce Portals :::
+		
+		www.amazon.com - It is a Web Application.
+		
+		
+		Sign_up			--> Developer - src_Code change 	- Test - Independently deploy the changes to prod
+											mywebapp_pkg1 --> 
+		Sign_In
+		Search
+		Add_to_Cart
+		Place_the_Order
+		Make_Payment
+		Confirm_Order
+		Track
+		
+			If this is Monolith Application Architecture, we consider all these as Modules/Functions
+		
+			In Micro_Service Based Application Architecture, we consider all these as services 
+			
+			Containerized Applications :::
+				It is recommended to have Micro_Service Based Application Architecture
+				
+			3-tier Application Architecture. 
+				Front_end 						User Interface
+				Application_Logic
+				Back_End(Database)
+		
+		Sign_up			--> Developer - src_Code change 	- Test - Independently deploy the changes to prod
+											mywebapp_pkg1 --> 
+							(3 Containers --> C1,C2,C3)			==> deployed these containers in PROD.	
+
+			
+			Container Orchestration Tool.
+				
+				Used to ensure high availability of the containers.
+				
+				- Replicas of Containers.	 15 C1, 15 C2, 15 c3
+				- Load Balancing
+				- Auto-Scaling
+				
+			Kubernetes is one of the Open Source Container Orchestration Tools. 
+			
+			Docker is containerization Service 
+				Docker Swarm - Container Orchestration Tools.
+				
+				
+			Kubernetes is a Open Source Container Orchestration Tool.
+			
+			Managed Services :
+			
+				AWS			ECS,ECR,EKS
+				Azure		ACS,ACR,AKS
+				GCP 		GCS,GCR,GKS		
+
+			
+			Continuous Development / Integration / Delivery / Deployment		using Containerized Applications.
+			
+			Release :::
+			
+			DevOps ::
+			
+			CI/CD Pipeline Execution :::
+			
+			Deployment Workflow :::	This can be automated using Build Orchestration Tool (Jenkins,Az_Pipeline,Gitlab-ci,aws_Code_Pipeline)
+			
+				Source_Code ==> Source Code Repository (github/gitlab/bitbucket/az_repo/aws_code_commit)
+				
+				Build ==> 
+				
+				Create Artifacts (binary - *.war/*.jar/*.dll/*.exec) ==>
+				
+				Create Container Image ==> 
+				
+				Publish the Container images to Container Registry (dockerhub,ACR,ECR,GCR)
+				
+				Deploy the images in target environments(QA/UAT/PROD) using Kubernetes.
+					
+					Non_Prod Environments								Production Environment
+						DEV 
+						QA 
+						UAT				===>		Pre-Prod/Staging  		===>	PROD 
+					
+				
+				Access:
+				
+					Create :::
+
+						1. github 					https://github.com/
+						2. Docker Registry			https://hub.docker.com/
+						3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+									- Valid Email ID
+									- Credit/Debit Card(International Transaction)
+									- Mobile Number
