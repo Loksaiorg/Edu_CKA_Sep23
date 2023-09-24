@@ -190,3 +190,122 @@ Create :::
 									- Valid Email ID
 									- Credit/Debit Card(International Transaction)
 									- Mobile Number
+						4. Create Virtual Machines 
+						5. Connect to Virtual Machines 
+								- EC2 Connect 
+								- Using SSH Clients - MobaXterm/Putty
+										https://mobaxterm.mobatek.net/download.html
+								- Terminals
+					
+				Docker Registry :::
+				
+				
+			Intro. to Kubernetes :::
+				
+				What is Kubernetes?
+				Architecture of Kubernetes 
+				Installation of Kubernetes
+				Kubernetes Concepts / Terminologies 
+				Working with Kubernetes
+			
+			Container Orchestration Tool.
+				
+				Used to ensure high availability of the containers.
+				
+				- Replicas of Containers.	 15 C1, 15 C2, 15 c3
+				- Load Balancing
+				- Auto-Scaling
+				
+			Kubernetes is one of the Open Source Container Orchestration Tools. 	
+
+			Architecture of Kubernetes ::
+
+					Kubernetes is a Master / Nodes Architecture.
+					
+					
+				Kubernetes_Master :: (VM)					
+					Kubernetes_Worker_Node1 (VM)
+					Kubernetes_Worker_Node2 (VM)
+					
+				Kubernetes_Master	
+					Kubernetes_Master1 :: (VM)
+						Kubernetes_Cluster1:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+						Kubernetes_Cluster2:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)				
+					Kubernetes_Master1 :: (VM)
+						Kubernetes_Cluster1:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+						Kubernetes_Cluster2:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+
+							
+					Kubernetes_Master ::
+					
+						API_Server 
+						
+						Scheduler 
+						
+						ETCD 
+						
+						Controller Manager 
+						
+					Kubernetes_Worker Nodes ::
+
+						Kubelet 
+						
+						CRI Container Runtime Interface 
+						
+						Kube_Proxy
+						
+						
+			Terminologies :::
+			
+				Images 
+				
+				Containers 
+				
+				Container Registry
+				
+				Repository 
+				
+				POD 
+				
+				Kubectl 
+				
+				Kubeadm 
+				
+				Kubernetes_Cluster
+
+			Kubernetes Concepts :::
+			
+				POD 
+				
+				Kubernetes Controller Objects:
+					Replication Controller 
+					Replicasets
+					Daemonsets 
+					Deployments
+					
+				Networking
+				
+				Services:
+					ClusterIP
+					NodePort
+					LoadBalancer
+					
+				Volumes:
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Host Volume 
+					Empty Dir 
+					Config_Maps 
+					Secrets
+				
+				Security:
+
+				Manage the Kubernetes Deployments 
