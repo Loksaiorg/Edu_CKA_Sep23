@@ -363,3 +363,119 @@ Summary ::::
 		Kubectl 		
 		Pod 		
 		Pod Networking 
+
+				
+**************************
+Day - 3 - 30th Sep. 2023
+**************************	
+
+		Working with Kubernetes Core Concepts :::
+		
+		Namespace ::::
+			It is logical partitioning of the the Kubernetes Cluster.
+			
+		
+		POD :::
+		
+			Create the Pod using kubectl command .
+			
+			Login to that pod and access the application. 
+			
+			Sevices - NodePort.
+			
+
+			Create the Pod using kubectl command .
+			
+				Manifest file :::
+				 
+				 Config file written using *.yaml script.
+				 
+				 
+				Create the Manifest file :::
+				
+				kubectl command to create the object.
+				
+				kubectl create -f <file1.yaml>
+				
+				kubectl get pods 
+				
+				kubectl describe command 			### This is basically used to analyse the kubernetes objects
+			
+
+			Login to that pod and access the application. 
+			
+				docker exec -it <container_id>			# in Docker.
+				
+				
+				kubectl exec -it  
+				
+				How to access the web applications running inside the container ???
+				
+				by using the container port. 
+				
+				<external_ip>:<hostport_#> 
+				
+				Port mapping  / port binding in Docker ???
+				
+				docker run -it -p 8089:8080 tomcat
+				
+				
+				Service : NodePort 
+				
+			Kubernetes Controller Objects:
+				Replication Controller 
+				Replicasets
+				Daemonsets 
+				Deployments	
+
+
+			Pod --> nginx-pod.
+
+
+			Kubernetes Controller Objects:				
+				Replication Controller  & Replicasets::
+					Both are used to run a specific copy of pods at any point of time.
+					Replicasets - Is the latest Object which support many features of Kubernetes.
+					Replicaset uses ==> Set based operator and equality based operator to identify the object labels.
+					Replication Controller ==> Uses only the equality based operator to identify the object labels.
+					Scale-Up
+					Scale-Down										
+				
+				replicas 3 --> 
+				
+			Daemonsets	:::
+			
+				Daemonset is used to deploy a copy of pod in all the available/set of worker nodes.
+				While monitoring the worker_nodes/Applications.
+				Logs 
+				Reports 
+				
+			Deployment Object :::
+			
+			
+				*.war ==> MyappImg_v1.0	==> Published to Dockerhub. Kubernetes we deploy this appln.
+				*.war ==> MyappImg_v1.1	==> Published to Dockerhub. Kubernetes we deploy this appln.
+
+				
+				Deployment Controller Object is used to deploy/upgrade/rollback/scale_up/Scale-Down the pods without any downtime.
+				
+				Replicas: 100
+				
+				My_Appln_Pod ::: 100 replicas. MyappImg_v1.0
+				
+				
+				Deployment Strategy ::::
+				
+				- Rolling Update : 	Is the default deployment strategy in kubernetes deployment
+									It is used to perform the deployment without any downtime.
+									
+									
+				
+				My_Appln_Pod ::: 100 replicas. MyappImg_v1.0 ==>  upgrade to ==> MyappImg_v1.1
+				
+				3 copies of pod --- is up and running. MyappImg_v1.0 
+				
+				update 1 of 3, if it is successful, It go with next
+				update 2 of 3 
+				update 3 of 3
+				
