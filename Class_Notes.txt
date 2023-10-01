@@ -478,4 +478,623 @@ Day - 3 - 30th Sep. 2023
 				update 1 of 3, if it is successful, It go with next
 				update 2 of 3 
 				update 3 of 3
+
+
+
+Lab Requirements :::
+
+Create :::
+
+	1. github 					https://github.com/
+	2. Docker Registry			https://hub.docker.com/
+	3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+				- Valide Email ID
+				- Credit/Debit Card(International Transaction)
+				- Mobile Number
+	
+			VMs....
+
+
+	Kubernetes is a Open Source Container Orchestration Tool.
+	
+	Managed Services :
+	
+		AWS			ECS,ECR,EKS
+		Azure		ACS,ACR,AKS
+		GCP 		GCS,GCR,GKS
+	
+	We are gng to work with open source Kubernetes.
+	
+	
+
+**************************
+Day - 1 - 23rd Sep. 2023
+**************************
+
+		Introduction to Kubernetes :::
+		
+		
+		Docker 
+		
+		Linux 
+		
+		
+Lab Requirements :::
+
+Create :::
+
+	1. github 					https://github.com/
+	2. Docker Registry			https://hub.docker.com/
+	3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+				- Valide Email ID
+				- Credit/Debit Card(International Transaction)
+				- Mobile Number
+	
+			VMs....
+
+	Kubernetes is a Open Source Container Orchestration Tool.
+	
+	DevOps and its Stages :::
+	
+		Containers ???
+		
+		Virtual Machines ???
+		
+	Devops :::
+	
+		Is a software development strategy
+	
+		Development ::
+			--> Create the source Code
+			--> Build 
+					--> It is a process of compiling the source code & Create artifacts (binary - *.war/*.jar/*.dll/*.exec)
+					
+						mywebapp.war	dependencies!
+						tomcat_Server_v8.5 with jdk_Openjdk11
+						
+						Package : mywebapp_pkg1(mywebapp.war,tomcat_v8.5,Openjdk11)
+						
+						Application_Image 	: 	It is static file which defines the Application and its dependencies.
+												Non-Executable.
+											
+						Container		 	:	Container is a executable units of Application_Images		
+					
+		Deployed to higher environments:
+			
+			Test Environments 
+				QA 					mywebapp.war - tomcat_Server_v9 with jdk_Openjdk17
+									mywebapp_pkg1
+				UAT 
+					
+			Prod Environment
+				PROD Server
 				
+		
+		
+		Monolith Application Architecture.
+				Tightly coupled
+		
+		Micro_Service Based
+				Loosely coupled
+		
+		
+		E_Commerce Portals :::
+		
+		www.amazon.com - It is a Web Application.
+		
+		
+		Sign_up			--> Developer - src_Code change 	- Test - Independently deploy the changes to prod
+											mywebapp_pkg1 --> 
+		Sign_In
+		Search
+		Add_to_Cart
+		Place_the_Order
+		Make_Payment
+		Confirm_Order
+		Track
+		
+			If this is Monolith Application Architecture, we consider all these as Modules/Functions
+		
+			In Micro_Service Based Application Architecture, we consider all these as services 
+			
+			Containerized Applications :::
+				It is recommended to have Micro_Service Based Application Architecture
+				
+			3-tier Application Architecture. 
+				Front_end 						User Interface
+				Application_Logic
+				Back_End(Database)
+		
+		Sign_up			--> Developer - src_Code change 	- Test - Independently deploy the changes to prod
+											mywebapp_pkg1 --> 
+							(3 Containers --> C1,C2,C3)			==> deployed these containers in PROD.	
+
+			
+			Container Orchestration Tool.
+				
+				Used to ensure high availability of the containers.
+				
+				- Replicas of Containers.	 15 C1, 15 C2, 15 c3
+				- Load Balancing
+				- Auto-Scaling
+				
+			Kubernetes is one of the Open Source Container Orchestration Tools. 
+			
+			Docker is containerization Service 
+				Docker Swarm - Container Orchestration Tools.
+				
+				
+			Kubernetes is a Open Source Container Orchestration Tool.
+			
+			Managed Services :
+			
+				AWS			ECS,ECR,EKS
+				Azure		ACS,ACR,AKS
+				GCP 		GCS,GCR,GKS		
+
+			
+			Continuous Development / Integration / Delivery / Deployment		using Containerized Applications.
+			
+			Release :::
+			
+			DevOps ::
+			
+			CI/CD Pipeline Execution :::
+			
+			Deployment Workflow :::	This can be automated using Build Orchestration Tool (Jenkins,Az_Pipeline,Gitlab-ci,aws_Code_Pipeline)
+			
+				Source_Code ==> Source Code Repository (github/gitlab/bitbucket/az_repo/aws_code_commit)
+				
+				Build ==> 
+				
+				Create Artifacts (binary - *.war/*.jar/*.dll/*.exec) ==>
+				
+				Create Container Image ==> 
+				
+				Publish the Container images to Container Registry (dockerhub,ACR,ECR,GCR)
+				
+				Deploy the images in target environments(QA/UAT/PROD) using Kubernetes.
+					
+					Non_Prod Environments								Production Environment
+						DEV 
+						QA 
+						UAT				===>		Pre-Prod/Staging  		===>	PROD 
+					
+				
+				Access:
+				
+					Create :::
+
+						1. github 					https://github.com/
+						2. Docker Registry			https://hub.docker.com/
+						3. AWS Free Tier Account 	https://portal.aws.amazon.com/billing/signup#/start/email
+									- Valid Email ID
+									- Credit/Debit Card(International Transaction)
+									- Mobile Number
+						4. Create Virtual Machines 
+						5. Connect to Virtual Machines 
+								- EC2 Connect 
+								- Using SSH Clients - MobaXterm/Putty
+										https://mobaxterm.mobatek.net/download.html
+								- Terminals
+					
+				Docker Registry :::
+				
+				
+			Intro. to Kubernetes :::
+				
+				What is Kubernetes?
+				Architecture of Kubernetes 
+				Installation of Kubernetes
+				Kubernetes Concepts / Terminologies 
+				Working with Kubernetes
+			
+			Container Orchestration Tool.
+				
+				Used to ensure high availability of the containers.
+				
+				- Replicas of Containers.	 15 C1, 15 C2, 15 c3
+				- Load Balancing
+				- Auto-Scaling
+				
+			Kubernetes is one of the Open Source Container Orchestration Tools. 	
+
+			Architecture of Kubernetes ::
+
+					Kubernetes is a Master / Nodes Architecture.
+					
+					
+				Kubernetes_Master :: (VM)					
+					Kubernetes_Worker_Node1 (VM)
+					Kubernetes_Worker_Node2 (VM)
+					
+				Kubernetes_Master	
+					Kubernetes_Master1 :: (VM)
+						Kubernetes_Cluster1:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+						Kubernetes_Cluster2:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)				
+					Kubernetes_Master1 :: (VM)
+						Kubernetes_Cluster1:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+						Kubernetes_Cluster2:
+							Kubernetes_Worker_Node1 (VM)
+							Kubernetes_Worker_Node2 (VM)
+
+							
+					Kubernetes_Master ::
+					
+						API_Server 
+						
+						Scheduler 
+						
+						ETCD 
+						
+						Controller Manager 
+						
+					Kubernetes_Worker Nodes ::
+
+						Kubelet 
+						
+						CRI Container Runtime Interface 
+						
+						Kube_Proxy
+						
+						
+			Terminologies :::
+			
+				Images 
+				
+				Containers 
+				
+				Container Registry
+				
+				Repository 
+				
+				POD 
+				
+				Kubectl 
+				
+				Kubeadm 
+				
+				Kubernetes_Cluster
+
+			Kubernetes Concepts :::
+			
+				POD 
+				
+				Kubernetes Controller Objects:
+					Replication Controller 
+					Replicasets
+					Daemonsets 
+					Deployments
+					
+				Networking
+				
+				Services:
+					ClusterIP
+					NodePort
+					LoadBalancer
+					
+				Volumes:
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Host Volume 
+					Empty Dir 
+					Config_Maps 
+					Secrets
+				
+				Security:
+				
+				Namespace 
+				
+				Manage the Kubernetes Deployments 	
+				
+**************************
+Day - 2 - 24th Sep. 2023
+**************************	
+			
+			Kubernetes is one of the Open Source Container Orchestration Tools. 	
+
+			Architecture of Kubernetes ::
+
+					Kubernetes is a Master / Nodes Architecture.
+					
+					
+				Kubernetes_Master :: (VM)					
+					Kubernetes_Worker_Node1 (VM)
+					Kubernetes_Worker_Node2 (VM)	
+
+			Terminologies :::
+			
+				Images 				==> Just a static file that defines the application artifacts & its Dependencies
+				
+				Containers 			==> Containers are the executable units of Images.
+				
+				Container Registry	==> It is used to store & manage the images.	dockerhub
+				
+				Repository			==> It is a subset of Container Registry. 
+
+				Kubeadm 			==> It is a Command line utility to install and Manage the Kubernetes Master & Nodes.
+
+				Kubectl				==> It is a command line utility used to interact with Kubernetes 
+				
+				Kubernetes_Cluster	==> It is collection of Kubernetes_Worker_Nodes	
+								
+				POD 
+				
+			
+			Installation of Kubernetes :::
+			
+			Pre-Requisites :::
+				
+					
+				Kubernetes_Master :: (VM)					
+					Kubernetes_Worker_Node1 (VM)	mywebapp_pkg1
+					Kubernetes_Worker_Node2 (VM)	mywebapp_pkg1
+					
+
+
+			About Kubectl
+			
+			About Pods
+				
+				
+Summary ::::
+
+		Installation & Configuration of Kubernetes Master & Worker Nodes using Kubeadm 
+		
+		Kubectl 
+		
+		Pod 
+		
+		Pod Networking 
+				
+				
+**************************
+Day - 3 - 30th Sep. 2023
+**************************	
+
+		Working with Kubernetes Core Concepts :::
+		
+		Namespace ::::
+			It is logical partitioning of the the Kubernetes Cluster.
+			
+		
+		POD :::
+		
+			Create the Pod using kubectl command .
+			
+			Login to that pod and access the application. 
+			
+			Sevices - NodePort.
+			
+
+			Create the Pod using kubectl command .
+			
+				Manifest file :::
+				 
+				 Config file written using *.yaml script.
+				 
+				 
+				Create the Manifest file :::
+				
+				kubectl command to create the object.
+				
+				kubectl create -f <file1.yaml>
+				
+				kubectl get pods 
+				
+				kubectl describe command 			### This is basically used to analyse the kubernetes objects
+			
+
+			Login to that pod and access the application. 
+			
+				docker exec -it <container_id>			# in Docker.
+				
+				
+				kubectl exec -it  
+				
+				How to access the web applications running inside the container ???
+				
+				by using the container port. 
+				
+				<external_ip>:<hostport_#> 
+				
+				Port mapping  / port binding in Docker ???
+				
+				docker run -it -p 8089:8080 tomcat
+				
+				
+				Service : NodePort 
+				
+			Kubernetes Controller Objects:
+				Replication Controller 
+				Replicasets
+				Daemonsets 
+				Deployments	
+
+
+			Pod --> nginx-pod.
+
+
+			Kubernetes Controller Objects:				
+				Replication Controller  & Replicasets::
+					Both are used to run a specific copy of pods at any point of time.
+					Replicasets - Is the latest Object which support many features of Kubernetes.
+					Replicaset uses ==> Set based operator and equality based operator to identify the object labels.
+					Replication Controller ==> Uses only the equality based operator to identify the object labels.
+					Scale-Up
+					Scale-Down										
+				
+				replicas 3 --> 
+				
+			Daemonsets	:::
+			
+				Daemonset is used to deploy a copy of pod in all the available/set of worker nodes.
+				While monitoring the worker_nodes/Applications.
+				Logs 
+				Reports 
+				
+			Deployment Object :::
+			
+			
+				*.war ==> MyappImg_v1.0	==> Published to Dockerhub. Kubernetes we deploy this appln.
+				*.war ==> MyappImg_v1.1	==> Published to Dockerhub. Kubernetes we deploy this appln.
+
+				
+				Deployment Controller Object is used to deploy/upgrade/rollback/scale_up/Scale-Down the pods without any downtime.
+				
+				Replicas: 100
+				
+				My_Appln_Pod ::: 100 replicas. MyappImg_v1.0
+				
+				
+				Deployment Strategy ::::
+				
+				- Rolling Update : 	Is the default deployment strategy in kubernetes deployment
+									It is used to perform the deployment without any downtime.
+									
+									
+				
+				My_Appln_Pod ::: 100 replicas. MyappImg_v1.0 ==>  upgrade to ==> MyappImg_v1.1
+				
+				3 copies of pod --- is up and running. MyappImg_v1.0 
+				
+				update 1 of 3, if it is successful, It go with next
+				update 2 of 3 
+				update 3 of 3
+				
+				
+**************************
+Day - 4 - 1st Oct. 2023
+**************************	
+
+				Deployment Controller Object :::
+				
+				deployment failure ::::
+				
+					during deployment there will no be any downtime, even if the deployment failed.
+				
+				Volumes:
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Hostpath Volume 
+					Empty Dir 
+					Config_Maps 
+					Secrets
+					
+					
+				Container Volumes ::::
+				
+				Container Volume ::::
+				
+					Stateless Applications :
+						Applications that will never have the trace of execution.
+					
+					Stateful Applications :
+						Applications that leaves the trace of execution in the form of logs, reports, any outfiles.
+						Also, this might expect inputs from external applications
+					
+					3-tier Application :::
+					
+					E_Commerce 
+					
+						sign-in ==> micro-service ==> 
+										Front_end				c1/pod
+										Application_Logic		c2/pod
+										Back_End (Database)		c3/pod
+										
+					
+				Kubernetes :::
+				
+					Volumes :::
+						Persistant Volume - PV 
+						Persistant Volume Claim - PVC 
+						Host Volume 
+						Empty Dir 
+						Config_Maps 
+						Secrets
+						
+				
+					Config_Maps :::
+					
+						Application Pod :::
+						
+							need some input --> can be passed in the form of input files.
+							
+							The volumes that are needed to any pod, should be created at cluster level.
+							
+						KMaster 
+							KWN1,2,3,4,5,6
+							
+						
+					
+					Secrets
+					
+					
+					Deploy an application in QA Environment ==> 
+					
+							application.config.properties_qa
+							application.config.properties_uat
+							application.config.properties_prod
+							
+					Application Image::
+					
+					
+					1. Create a config file 
+					2. Create a config_map using tis file.
+					3. Create pod by attaching this config map
+					
+					
+					Config_Maps (vs) Secret
+					
+						- Config_Maps volumes are used to send the general inputs to the pod
+						- Secret volumes are used to send the sensitive inputs to the pod
+					
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Host Volume 
+					
+					
+					Volume ==> it is just a directory(files)
+					
+					Pod ==> Application ==> generate some output files ==> 2GB of volume 
+					
+					Storage Administrator /Infra-Team :::
+
+					Persistant Volume - PV 
+					
+					Persistant Volume Claim - PVC 
+					
+							Static / Dynamic --> 
+							
+
+					Host Volume  ==> 
+
+						Pod = deployed in a worknode!
+						
+						Host volumes are created in the host machine.
+						
+				
+				Namespace :::
+				
+					- It is a logical partitioning of Kubernetes Cluster.
+					
+					kubectl get ns
+					
+					kubectl create ns <ns_name>
+					
+					
+				Kubernetes_Master					# Non-Prod
+					WN1,WN2,WN3,WN4,WN5				# DEV/QA/UAT
+
+
+				Kubernetes_Master	
+					Kubernetes_Master					# Production
+						WN1,WN2,WN3,WN4,WN5					# Active Prod_NS1 / Prod_NS2(Active)
+
+
