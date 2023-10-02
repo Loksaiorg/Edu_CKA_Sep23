@@ -1,3 +1,5 @@
+
+
 Lab Requirements :::
 
 Create :::
@@ -305,9 +307,11 @@ Create :::
 					Secrets
 				
 				Security:
-
-				Manage the Kubernetes Deployments 
-
+				
+				Namespace 
+				
+				Manage the Kubernetes Deployments 	
+				
 **************************
 Day - 2 - 24th Sep. 2023
 **************************	
@@ -359,11 +363,15 @@ Day - 2 - 24th Sep. 2023
 				
 				
 Summary ::::
-		Installation & Configuration of Kubernetes Master & Worker Nodes using Kubeadm 		
-		Kubectl 		
-		Pod 		
-		Pod Networking 
 
+		Installation & Configuration of Kubernetes Master & Worker Nodes using Kubeadm 
+		
+		Kubectl 
+		
+		Pod 
+		
+		Pod Networking 
+				
 				
 **************************
 Day - 3 - 30th Sep. 2023
@@ -479,3 +487,131 @@ Day - 3 - 30th Sep. 2023
 				update 2 of 3 
 				update 3 of 3
 				
+				
+**************************
+Day - 4 - 1st Oct. 2023
+**************************	
+
+				Deployment Controller Object :::
+				
+				deployment failure ::::
+				
+					during deployment there will no be any downtime, even if the deployment failed.
+				
+				Volumes:
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Hostpath Volume 
+					Empty Dir 
+					Config_Maps 
+					Secrets
+					
+					
+				Container Volumes ::::
+				
+				Container Volume ::::
+				
+					Stateless Applications :
+						Applications that will never have the trace of execution.
+					
+					Stateful Applications :
+						Applications that leaves the trace of execution in the form of logs, reports, any outfiles.
+						Also, this might expect inputs from external applications
+					
+					3-tier Application :::
+					
+					E_Commerce 
+					
+						sign-in ==> micro-service ==> 
+										Front_end				c1/pod
+										Application_Logic		c2/pod
+										Back_End (Database)		c3/pod
+										
+					
+				Kubernetes :::
+				
+					Volumes :::
+						Persistant Volume - PV 
+						Persistant Volume Claim - PVC 
+						Host Volume 
+						Empty Dir 
+						Config_Maps 
+						Secrets
+						
+				
+					Config_Maps :::
+					
+						Application Pod :::
+						
+							need some input --> can be passed in the form of input files.
+							
+							The volumes that are needed to any pod, should be created at cluster level.
+							
+						KMaster 
+							KWN1,2,3,4,5,6
+							
+						
+					
+					Secrets
+					
+					
+					Deploy an application in QA Environment ==> 
+					
+							application.config.properties_qa
+							application.config.properties_uat
+							application.config.properties_prod
+							
+					Application Image::
+					
+					
+					1. Create a config file 
+					2. Create a config_map using tis file.
+					3. Create pod by attaching this config map
+					
+					
+					Config_Maps (vs) Secret
+					
+						- Config_Maps volumes are used to send the general inputs to the pod
+						- Secret volumes are used to send the sensitive inputs to the pod
+					
+					Persistant Volume - PV 
+					Persistant Volume Claim - PVC 
+					Host Volume 
+					
+					
+					Volume ==> it is just a directory(files)
+					
+					Pod ==> Application ==> generate some output files ==> 2GB of volume 
+					
+					Storage Administrator /Infra-Team :::
+
+					Persistant Volume - PV 
+					
+					Persistant Volume Claim - PVC 
+					
+							Static / Dynamic --> 
+							
+
+					Host Volume  ==> 
+
+						Pod = deployed in a worknode!
+						
+						Host volumes are created in the host machine.
+						
+				
+				Namespace :::
+				
+					- It is a logical partitioning of Kubernetes Cluster.
+					
+					kubectl get ns
+					
+					kubectl create ns <ns_name>
+					
+					
+				Kubernetes_Master					# Non-Prod
+					WN1,WN2,WN3,WN4,WN5				# DEV/QA/UAT
+
+
+				Kubernetes_Master	
+					Kubernetes_Master					# Production
+						WN1,WN2,WN3,WN4,WN5					# Active Prod_NS1 / Prod_NS2(Active)
