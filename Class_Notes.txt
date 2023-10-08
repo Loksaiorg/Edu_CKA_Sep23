@@ -615,3 +615,86 @@ Day - 4 - 1st Oct. 2023
 				Kubernetes_Master	
 					Kubernetes_Master					# Production
 						WN1,WN2,WN3,WN4,WN5					# Active Prod_NS1 / Prod_NS2(Active)
+
+
+
+
+				
+**************************
+Day - 6 - 7th Oct. 2023
+**************************	
+
+			Kubernetes Services :::
+			
+			
+			Pod ==> IP Address .
+			
+			Internal or External ==
+			
+			3 - tier Application Architecture -
+			 
+			Front_end --	p1,2,3   service - nodeport service
+			
+			Application_Logic -- p1,2,3
+			
+			Backend -- p1,2,3
+			
+			
+			ClusterIP Service			==> It is used to access the pods internally.
+			
+			NodePort  Service			==> Is used to expose the pods to internet.
+			
+			LoadBalancer ;;;
+			
+				www.gmail.com 		==> Load Balancer 
+				
+				www.gmail.com/inbox 
+				www.gmail.com/spam
+				www.gmail.com/trash 
+				www.gmail.com/draft
+				
+			Non-Prod			Prod 
+			
+			kubectl create -f nginx-deploy.yaml 
+
+			kubectl apply -f nginx-deploy.yaml 
+
+
+				INGRESS Controller 
+				
+			
+			www.google.com 
+			
+			www.drive.google.com 
+			www.maps.google.com 
+			www.gmail.com
+				www.gmail.com/inbox 
+				www.gmail.com/spam
+				www.gmail.com/trash 
+				www.gmail.com/draft			
+			
+			
+	
+RBAC 
+
+HELM CHARTS 
+
+	--> Default Package Manager for Kubernetes
+
+	yum 
+	apt 	-- > node level
+	dnf 
+	
+Dashboards --> 
+
+
+Monitoring/Trouble shooting Kubernetes 
+
+cicd pipeline 
+
+API Server
+			
+
+			
+				
+				
