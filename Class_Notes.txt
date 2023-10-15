@@ -695,6 +695,391 @@ cicd pipeline
 API Server
 			
 
+#################
+14th Oct. 2023
+#################
+
+			-- Securing Kubernetes 
+			
+			-- Monitoring and logs 
+			
+			-- trouble shooting
+			
+			-- Scheduler
+			
+			-- CICD -- Integration of Kubernetes in Jenkins CI/CD - Demo
+			
+			
+			
+		Security ::::
+		
+			- Security Architecture :::
+			
+				- Components / process.
+				
+				
+			In Kubernetes Architecture :::
+			
+				-- API Server ???
+					- Namespace
+						- kube-system 
+							api,etcd, 
+						
+						
+					- Clusterlevel 
+					
+					RBAC -->
+					
+					
+				kubectl ==> adhoc / manifest - *.yaml
+				
+			apiversion: <group_name>/<version>	
+				
+			apiversion: v1
+			kind: pod
+			
+			apiversion: apps/v1
+			kind: deployment 
+			
+			RoleBinding ::
+				usergroup
+				service_account
+
+				Handling individual users is not recommended in real time.
+				
+			Roles & Responsibilites of Kubernetes Administrator ::::
+			
+				-- Installation & Config
+				-- Cluster management 
+				-- CERT, User access - RBAC 
+				-- Daemonsets ==> used to deploy a copy of pod in all the nodes.
+				
+						AppTeam1 ==> CLuster :::
+								Pod is deployed !
+								
+					
+			Ubuntu :
+			
+				root ==> Admin.
+				ubuntu ==> regular user 
+				devopsadmin ==> regular
+
+
+TroubleShooting!
+
+			--> Cluster - Nodes
+			--> Pods 			==> 
+			--> Namespaces 
+			--> Services 
+
+
+			CICD Pipeline ::::
+								:v1.1		webapp:v1.2
+			Application_build ==> Docker_Build ==> Publish Images to DockerHub ==> Deployed in Kubernetes (Cluster_Level/Namespace_Level) 
+														
+															QA Environment(webapp:v1.2)
+															
+															
+			docker run -it 	webapp:v1 
+							webapp:v2
+							webapp:latest 
+							
+							
+			"docker build -t webapp:v{BUILD_NUMBER} ."
+			
+			github 		==> Used to version controll src_Code.
+			
+			Artifactory Library ==> Jfrog Artifactory ==> Used to version the Snapshots of Application Artifacts *.war / *.jar
+			
+			docker hub 	==> Used to maintain the various versions of Application Images. 
+			
+			
+			Deployment Object :::
+			
+			Pods --> 
+			
+				10 Replicas.
+				
+				replicas=5
+				
+			Using Label and selectors we verify the association of deployments and services 
+			
+			Self-Healing !!!!
+			
+			
+				Deployment Controller Object :::
+			
+				replicas == 3
+				
+				1(1),2(2) ==> 
+				
+				100 Nodes :::
+				
+					50 Pod instances 2pods
+					
+				kubectl get pods -n kube-system :
+					list of pods running in kube-system.
+					
+						api			VM(Master Node)
+						etcd 
+						con 
+						sche
+						kubeproxy
+						
+					kubectl describe pods <api_>
+			
+				Kubelet ???
+				
+				kubectl get pods 
+				
+				cd /var/log
+				ls
+				kube-apiserver_log
+				
+				cat var/log/kube-apiserver_log
+				systemctl status kubelet
+				
+				systemctl start kubelet 
+				
+				systemctl restart kubelet 
+				
+				systemctl enable kubelet 
+				
+				KMaster1 
+					Master.
+						K_Master 		(Down due to some reason)
+							WN1,2,3,4,5,.....,100	--> Monitoring these nodes for its usage.
+								<30%
+							
+							200+ pods 
+							
+							
+				Self-Healing ::
+				
+					Deployment 
+				
+				
+				Monitoring Tools --> Dynatrace/DataDog/Prometheus/Nagios
+				Logging Tools
+				80% 
+						
+						K_Master 		(Down due to some reason)
+							WN1,2,3,4,5 
+							
+							200+ pods 	
+							
+							
+				CRI --> ContainerD
+				
+				docker 
+				ContainerD
+				Kubelet 
+				api-server
+				
+				systemctl status ContainerD
+							
+				
+				
+			-- Scheduler
+				
+					K_Master 		(Down due to some reason)
+							WN1,2,3,4,5,.....,100		
+
+				Node Selector ::::
+				
+			
+
+
+#################
+15th Oct. 2023
+#################
+
+		 ==> Kubernetes Dashboards 
+		 
+		 ==> CICD 
+		 
+		HELM ==> Package Manager for Kubernetes 
+		
+			yum/apt/dnf				==> node Level		--> Assign Label
+			
+			Tools ==> 				==> Cluster_level	
+			
+			Pod Daemonset			==> Cluster Level / Sub-Set
+			
+
+		Kubernetes - Open Source 
+		
+		Managed Services - EKS --> Dashboards
+		kubectl == eksctl
+		
+		HELM ==> Package Manager for Kubernetes :::
+		
+			- Install HELM.
+			- Using HELM we can install any kubernetes packages.
+			- HELM-Chart = Repository 
+		
+			--> Create Service Account 
+			--> ClusterRoleBinding
+			--> Token
+			
+			https://35.154.213.255:32760/
+			
+			kubectl apply -f <file.yaml>
+
+
+		Prometheus -> Monitoring Tool 
+			Time Series Database 
+			PV 
+		Prometheus Acts as a Data Source to Grafana == Grafana --> Visualization Tool 
+		
+		Dynatrace 
+		DataDog 
+		
+		Namespaces :::
+		
+			Environment - QA / DEV / UAT / PROD 
+			
+			Application level - pod -- Appteam - 
+			
+			Deployment :
+			
+				Blue Green Deployments ;;
+		
+		
+		
+		CICD Pipeline :::
+		
+		Application Onboarding !!!
+		
+		Build 
+		
+		Automated Build and deployments ::::
+		
+			How to integrate Kubernetes with any build orchestration Tool :
+			
+				Jenkins 
+				
+				Gitlab-ci 
+				Az_pipeline 
+				AWS_CodePipeline 
+			
+			
+			Jenkins ::
+				Pipeline : Declarative Pipeline :
+				
+					Stages ::
+					
+					Execution Flow :::
+					
+						1. Developers -- Create the source code.
+						2. Commit the changes to src code repo. (github)
+						
+					DevOps Automation starts ::
+					Jenkins_Master	
+						Jenkin_Build_Server(Slavenode1) 
+						Jenkin_Build_Server(Slavenode2) 
+							1. SCM_Checkout
+							2. Application Build & Create Artifacts 
+							3. Docker Build Image
+							4. Publish the Image to Docker Hub(Container Registry)
+							5. Deploy the images in Kubernetes
+							
+
+
+user add devopsadmin
+ssh-keygen
+
+					
+pipeline {
+
+    agent { label 'slave1' }
+	
+    tools {
+        maven "maven-3.6.3"
+    }
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+	
+    stages {
+        stage('SCM_Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/LoksaiETA/devops-java-webapp.git'
+            }
+        }
+        stage('Application_Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+            }
+			  post {
+				failure {
+				  sh "echo 'Send mail on failure'"
+				  mail to:"loksaieta223@gmail.com", from: 'loksaieta223@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed."
+				}
+			  }
+        }
+        stage('Build Docker Image') {
+            steps {
+				sh 'docker version'
+				sh "docker build -t loksaieta/loksai-eta-app:${BUILD_NUMBER} ."
+				sh 'docker image list'
+				sh "docker tag loksaieta/loksai-eta-app:${BUILD_NUMBER} loksaieta/loksai-eta-app:latest"
+            }
+        }
+		stage('Login2DockerHub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		stage('Publish_to_Docker_Registry') {
+			steps {
+				sh "docker push loksaieta/loksai-eta-app:latest"
+			}
+		}
+        stage('Approve - Deployment'){
+            steps{
+                
+                //----------------send an approval prompt-------------
+                script {
+                   env.APPROVED_DEPLOY = input message: 'User input required Choose "Yes" | "Abort"'
+                       }
+                //-----------------end approval prompt------------
+            }
+        }
+		stage('Deploy to Kubernetes_Cluster') {
+			steps {
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f k8smvndeployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])	
+				}
+			}
+		}
+    }
+}			
+		
+sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f k8smvndeployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+
+
+https://3.110.169.127:30442/
+
+
+DevOps ::
+
+
+		Linux OS -- shell scripts/groovy/yaml/python scripts 
+		
+		Jenkins --> master_slave, create CICD, handling remote servers
+		
+		gitlab-ci 
+		
+		az-pipeline 
+		
+		Ansible 
+
+
 			
 				
 				
